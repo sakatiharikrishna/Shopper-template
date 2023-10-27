@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="script.js" ></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="container-fluid" onload="bodyload()">
+    <header class="bg-info text-dark p-3 mt-2 d-flex justify-content-between">
+       <div>
+          <h3>Shopper</h3>
+       </div>
+       <div>
+          <span class="me-2 nav-item"><a href="javascript:NavClicked('all')">Home</a></span>
+          <span class="me-2 nav-item"><a href="javascript:NavClicked('electronics')">Electronics</a></span>
+          <span class="me-2 nav-item"><a href="javascript:NavClicked('jewelery')">Jewelery</a></span>
+          <span class="me-2 nav-item"><a href="javascript:NavClicked('men's clothing')">Men's Fashion</a></span>
+          <span class="me-2 nav-item"><a href="javascript:NavClicked('women's clothing')">Women's Fashion</a></span>
+       </div>
+       <div>
+          <span class="me-2"><a><span class="bi bi-person"></span></a></span>
+          <span class="me-2"><a><span class="bi bi-heart"></span></a></span>
+          <span class="me-2 position-relative"><a href="#cart" data-bs-toggle="modal" onclick="ShowClick()"><span class="bi bi-cart4"></span><span class="badge bg-danger rounded rounded-circle position-absolute" id="lblCount">0</span></a></span>
+          <div class="modal fade" id="cart">
+             <div class="modal-dialog">
+                <div class="modal-content">
+                   <div class="modal-header">
+                     <h2 class="text-dark">Your Cart Items</h2>
+                     <button class="btn-close" data-bs-dismiss="modal"></button>
+                   </div>
+                   <div class="modal-body">
+                     <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Preview</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                     </table>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </header>
+    <section class="mt-2 row">
+       <nav class="col-2">
+         <div>
+            <label class="form-label">Select Category</label>
+            <div>
+                <select class="form-select" id="lstCategories" onchange="CategoryChanged()">
+
+                </select>
+            </div>
+         </div>
+         <div>
+            <label>Filter Products</label>
+            <ul class="list-unstyled">
+               <li><input type="checkbox" name="category" class="form-check-input" value="electronics">Electronics</li>
+               <li><input type="checkbox" name="category" class="form-check-input" value="jewelery">Jewelery</li>
+               <li><input type="checkbox" name="category" class="form-check-input" value="men's clothing">Men' clothing</li>
+               <li><input type="checkbox" name="category" class="form-check-input" value="women's clothing">Women's clothing</li>
+               <button onclick="FilterClick()" class="btn btn-primary w-100 mt-2">Apply Filter</button>
+            </ul>
+         </div>
+       </nav>
+       <main class="col-10 d-flex flex-wrap overflow-auto" style="height:500px">
+
+       </main>
+    </section>
+</body>
+</html>
